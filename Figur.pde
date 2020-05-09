@@ -1,6 +1,7 @@
 class Figur {
   int type;
   int xPos, yPos;
+  ArrayList<M> AvailableMoves = new ArrayList<M>();
   
   Figur(int t,int y,int x){
     type = t;
@@ -12,8 +13,37 @@ class Figur {
     println(typePrint(type)," , ",zahlZuBuchstabe(xPos)," , ",yPos);
   }
   
+ void getAvailableMoves(){
+  AvailableMoves.clear();
+  switch(type){
+   case 1 :  fillMoves(bauer);break;
+   case 2 :  fillMoves(laufer);break;
+   case 3 :  fillMoves(pferd);break;
+   case 4 :  fillMoves(turm);break;
+   case 5 :  fillMoves(dame);break;
+   case 6 :  fillMoves(koenig);break;
+  }
+ }
+ 
+ void fillMoves(M [] moves){
+   for (M mv : moves){
+     if (istInFeld(mv,xPos,yPos)){
+       if(feldIstFrei(xPos+mv.x,yPos+mv.y)){
+         AvailableMoves.add(mv);
+       }
+       
+     }
+   }
+ }
+ 
+ void printAvailableMoves(){
+  for (M mv : AvailableMoves){
+    println(mv.x + " : " + mv.y);
+  }
+ }
 
 }
+  
 
 
 

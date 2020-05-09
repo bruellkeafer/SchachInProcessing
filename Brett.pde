@@ -21,6 +21,22 @@ class Brett {
       }
     }
   }
+  
+  void selectAvailableFelder(Figur f){
+   unselectAlleFelder();
+   SpielFeld[f.xPos][f.yPos].selected = true;
+    for (M mv : f.AvailableMoves){
+     SpielFeld[f.xPos+mv.x][f.yPos+mv.y].selected = true;
+   }
+  }
+  
+  void unselectAlleFelder(){
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+       SpielFeld[i][j].selected = false;   
+      }
+    }
+  }
 }
 
 

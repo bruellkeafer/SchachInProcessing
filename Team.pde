@@ -15,10 +15,9 @@ class Team {
     String [] list = (farbe)? loadStrings("weiss.txt") : loadStrings("schwarz.txt");
     for (int i = 0; i < 16; i++) {
       String [] figurInfo = split(list[i+2], ',');
-      println(figurInfo[0].charAt(0));
       int t = Integer.parseInt(str(figurInfo[0].charAt(0))); // Die 
-      int y = Integer.parseInt(str(figurInfo[1].charAt(0))); // und Die Funktion sind etwas hässlig, weil einen Char in einen Int zu verwandeln etwas wurschtelig ist. wenn du nen besseren Weg findes, go for it
-      int x = buchstabeZuZahl(figurInfo[2].charAt(0));
+      int y = Integer.parseInt(str(figurInfo[1].charAt(0))) -1; // und Die Funktion sind etwas hässlig, weil einen Char in einen Int zu verwandeln etwas wurschtelig ist. wenn du nen besseren Weg findes, go for it
+      int x = buchstabeZuZahl(figurInfo[2].charAt(0)) -1; // "-1" wegen Array Formatierung
       Figur f = new Figur(t, y, x); 
       lebendig.add(f);
     }
